@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Model overlay</title>
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+</head>
+<body>
+    <!-- Model overlay positioning(fixed + inset-0) -->
+     <main class="max-w-4xl mx-auto p-6 space-y-8 ">
+        <section class="border rounded p-6 space-y-4">
+            <h2>Model Demo</h2>
+            <div class="overflow-auto h-72 border rounded p-4">
+                <div class="space-y-8">
+                    <p>Content behind a model</p>
+                    <p>There are many variations of passages of Lorem Ipsum available,but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable. If you are going to use a passage of Lorem Ipsum,you need to be sure there isn't anything embarrassing hidden in the middle of text.All the Lorem Ipsum generators on the Internet tend to repeat predefined chunks as necessary making this the first true generator on the Internet. It uses a dictionary of over 200 Latin words,combined with a handful of model sentence structures, to generate Lorem Ipsum which looks reasonable.The generated Lorem Ipsum is therefore always free from repetition, injected humour,or non-characteristic words etc.</p>
+                    <p>here are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable. If you are going to use a passage of Lorem Ipsum, you need to be sure there isn't anything embarrassing hidden in the middle of text. All the Lorem Ipsum generators on the Internet tend to repeat predefined chunks as necessary, making this the first true generator on the Internet. It uses a dictionary of over 200 Latin words, combined with a handful of model sentence structures, to generate Lorem Ipsum which looks reasonable. The generated Lorem Ipsum is therefore always free from repetition, injected humour, or non-characteristic words etc.</p>
+                </div>
+            </div>
+            <div class="fixed inset-0 border border-dashed pointer-events-none">
+                <div class="absolute top-4 left-4 border rounded px-3 py-2">
+                    Overlay: fixed inset-0
+                </div>
+            </div>
+        </section>
+     </main>
+</body>
+</html>

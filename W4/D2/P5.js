@@ -19,7 +19,7 @@ signupForm.addEventListener("submit",function(event){
     }
     //Password validation 
     const password = signupPassword.value;
-    console.log(signupForm.nextElementSibling.signupPassword.value);
+    // console.log(signupForm.nextElementSibling.signupPassword.value);
     if(!password){
         message.textContent = "Password is required";
         message.style.color= "red";

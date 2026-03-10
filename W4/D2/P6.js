@@ -1,0 +1,50 @@
+const LivePassword = document.getElementById("LivePassword");
+const message = document.getElementById("message");
+LivePassword.addEventListener("input",function(){
+    //Password validation 
+    const password = LivePassword.value;
+    if(!password){
+        message.textContent = "Password is required";
+        message.style.color= "red";
+        LivePassword.focus();
+        return;
+    }
+    //check length of password
+    if(password.length<8){
+        message.textContent = "Password must be atleast 8 characters long.";
+        message.style.color= "red";
+        LivePassword.focus();
+        return;
+    }
+    //check UPPERCASE characters
+    if(!/[A-Z]/.test(password)){
+        message.textContent = "Password must have atleast 1 UPPERCASE character.";
+        message.style.color= "red";
+        LivePassword.focus();
+        return; 
+    }
+    //check lowercase characters
+     if(!/[a-z]/.test(password)){
+        message.textContent = "Password must have atleast 1 lowercase character.";
+        message.style.color= "red";
+        LivePassword.focus();
+        return; 
+    }
+    //check number
+    if(!/\d/.test(password)){
+        message.textContent = "Password must have atleast 1 digit in it.";
+        message.style.color= "red";
+        LivePassword.focus();
+        return;
+    }
+    //check special characters
+    if(!/[@#$%&*!]/.test(password)){
+        message.textContent = "Password must have atleast 1 special character @#$%&*!.";
+        message.style.color= "red";
+        LivePassword.focus();
+        return;
+    }
+     message.textContent = "Valid email and password entered";
+    message.style.color= "green";
+    console.log("Success!",{email,password});
+});

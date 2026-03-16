@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Multi-Section Feedback Analyzer</title>
+    <style>
+        .card{
+            width: 350px;
+            height: 240px;
+            border: 3px solid black;
+            border-radius: 10px;
+            margin: 20px;
+            padding: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div id="formContainer">
+        <div class="card"> Feedback Form 1
+            <form id="feedbackForm">
+                <label>Name: <input type="text" id="feedbackName" placeholder="eg:Abc" required></label> <br><br>
+                <label>Email: <input type="text" id="feedbackEmail" placeholder="eg:xyz123@gmail.com" required></label> <br><br>
+                <label>Feedback Type:
+                    <select id="feedback">
+                        <option value="Select">Select</option>
+                        <option value="Bug">Bug</option>
+                        <option value="Suggestion">Sugession</option>
+                        <option value="Appreciation">Appreciation</option>
+                    </select>
+                </label> <br><br>
+                <label>Feedback Text: <input type="text" id="feedbackText" required></label> <br><br>
+                <button type="submit">Submit</button>
+               <button type="button" id="deleteBtn">Delete</button>
+            </form>
+            <p id="message"></p>
+        </div>
+    </div>
+    <button id="addFormBtn">Add Feedback Form</button>
+    <script src="./A2.js"></script>
+</body>
+</html>

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Notification Center</title>
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script> 
+</head>
+<body>
+    <div class="rounded w-130 h-85 bg-blue-50  p-2 m-25">
+        <h1 class="px-5 font-bold ">Notification Card</h1>
+        <span class="inline-flex bg-blue-300 text-black-800 rounded-full ml-110 w-12"> 3New</span>
+        <div class="rounded w-120 h-23 bg-red-200 border-l-4 border-red-400 p-2 m-3">
+        <h2 class="text-red-600 ml-2 font-bold">Action required</h2>
+        <p class="text-red-400 ml-2"> Your last payment attempt failed. 
+         please update your payment method to avoid service interruption</p>
+        </div>
+    <div class="rounded w-120 h-25 bg-yellow-100 border-l-4 border-yellow-400 p-2 m-3">
+        <h2 class="text-yellow-600  ml-2 font-bold">Maintanance Notice</h2>
+        <p  class="text-yellow-400 ml-2">The system will undergo maintenance tonight.
+            Some features may be temporarly unavailable </p>
+    </div>
+        <button class="View-btn rounded bg-blue-600 text-white-1-00 text-center font-bold px-2 py-1 m-2 ml-10">View All</button>
+         <button class="Dismiss-btn border rounded-md bg-blue-50 p-1 ml-2 ">Dismiss</button>
+    </div>
+</body>
+</html>

@@ -6,5 +6,5 @@ const appConfig = require("./support/app-config.json");
 console.log("__dirname",__dirname);
 console.log("__filename",__filename);
 console.log("Application name:",appConfig.appName);
-console.log("Application name:",appConfig.environment);
-console.log("Application name:",appConfig.features.join(", ")); //if add the .join(", ") it will remove the square bracket
+console.log("Enivronment:",appConfig.environment);
+console.log("Features:",appConfig.features.join(", ")); //if add the .join(", ") it will remove the square bracket

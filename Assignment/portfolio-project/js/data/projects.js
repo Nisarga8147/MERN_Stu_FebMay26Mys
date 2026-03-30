@@ -42,5 +42,4 @@ const projectsData = [
     status: "Demo",
     liveDemo: "#",
     github: "#"
-  }
-];
+  }];

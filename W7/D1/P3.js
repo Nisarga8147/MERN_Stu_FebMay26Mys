@@ -4,7 +4,11 @@ const app = express();
 
 //To read
 app.get("/users",function(req,res){
-    res.send("Returing all Users");
+    res.status(200).json([{message:"Success"},
+        {id:1,name:"Nisarga"},
+        {id:2,name:" Bindu"},
+        {id:3,name:"Lakshmi"}]);
+    //res.send("Returing all Users");
 });
 
 //To create

@@ -1,0 +1,19 @@
+document.addEventListener("DOMContentLoaded",function(){
+    //Render skills
+    renderSkills();
+    initModal();
+    initContactValidation();
+    initTheme(); 
+    renderProjects();
+    renderEducations();
+    initScrollProgress();
+    initScrollSpy();
+    initBackToTop();
+    initProjectFilters();
+    initProjectCount();
+    initProjectSorting();
+    initProjectExpand();
+    initGeolocationMessage();
+    initDynamicGreeting();
+    initRecentlyViewed();
+})

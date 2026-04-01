@@ -3,7 +3,7 @@ const express = require("express");
 const app =express();
 //custom middleware
 function checkAdminAccess(req,res,next){
-    if(req,query.role!=="admin"){
+    if(req.query.role!=="admin"){
         return res.status(403).json({
             success:false,
             message:"Admin access denied"
@@ -23,3 +23,4 @@ app.get("/admin",function(req,res){
 app.listen(4000,function(){
     console.log("Express server running at http://localhost:4000");
 });
+

@@ -49,7 +49,7 @@ app.post("/login",function(req,res){
         userId:101,
         email:email,
         role:"member"
-    },secretKey,{expiresIn:"10m",algorithm:"HS256",issuer:"jwt-example"}
+    },secretKey,{expiresIn:"1h",algorithm:"HS256",issuer:"jwt-example"}
 );
     const refreshToken = jwt.sign({
         userId:101,
@@ -83,7 +83,7 @@ app.post("/refresh",function(req,res){
             email:decoded.email,
             role:"member"
         },secretKey,{
-            expiresIn:"15m",algorithm:"HS256",issuer:"jwt-example"
+            expiresIn:"45m",algorithm:"HS256",issuer:"jwt-example"
         });
         res.json({
             success:true,

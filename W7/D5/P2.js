@@ -12,9 +12,10 @@ app.use(session({
     }
 }));
 app.get("/login",function(req,res){
-    //After login complete this data we get
     req.session.user = {
-        id:201,username:"Nisarga",role:"student"
+        id:201,
+        username:"Nisarga",
+        role:"student"
     };
     res.send("Session details stored after login.");
 });

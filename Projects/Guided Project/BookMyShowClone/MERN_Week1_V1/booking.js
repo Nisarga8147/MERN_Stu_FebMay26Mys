@@ -1,8 +1,6 @@
 // Handles booking related operations
-const { rejects } = require("assert");
-const { error } = require("console");
-const { resolve } = require("dns");
-const bookingEmitter = require("events");
+
+const bookingEmitter = require("./events");
 let currentBooking = null;
 function getCurrentBooking(){
     return currentBooking;

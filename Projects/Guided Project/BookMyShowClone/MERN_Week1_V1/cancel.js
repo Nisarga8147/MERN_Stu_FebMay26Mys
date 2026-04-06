@@ -2,7 +2,7 @@
 // To cancel the existing booking if exists
 const bookingEmitter = require("./events");
 const {getCurrentBooking,clearCurrentBooking} = require("./booking");
-function cancelBooking(movie){
+function cancelBooking(movies){
     const booking = getCurrentBooking();
     if(!booking){
         bookingEmitter.emit("bookingFailed","No booking found to cancel.");

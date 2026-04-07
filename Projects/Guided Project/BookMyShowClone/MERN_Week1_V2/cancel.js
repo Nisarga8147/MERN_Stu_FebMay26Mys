@@ -1,111 +1,39 @@
-// Handles booking related operations
+//cancel.js
+// To cancel the existing booking if exists
 const bookingEmitter = require("./events");
+const {getCurrentBooking,clearCurrentBooking} = require("./booking");
 
-let currentBooking = null;
+function cancelBooking(movies){
+    const booking = getCurrentBooking();
 
-function getCurrentBooking(){
-    return currentBooking;
-}
-
-function clearCurrentBooking(){
-    currentBooking = null;
-}
-
-function checkDuplicateBooking(movie,showtime, seatCount){
-    return new Promise((resolve,reject)=>{
-        setTimeout(() => {
-            if (
-                currentBooking &&
-                currentBooking.movieId === movie.id &&
-                currentBooking.time === showtime.time &&
-                currentBooking.seatCount === seatCount
-            ) {
-                return reject("Duplicate booking detected. Ticket already booked");
-            }
-            resolve("No Duplicate booking found.");
-        }, 300);
-    });
-}
-
-function checkSeatsAvailability(showtime,seatCount){
-    return new Promise((resolve,reject)=>{
-        setTimeout(() => {
-            if (showtime.seatsAvailable < seatCount) {
-                return reject(`Only ${showtime.seatsAvailable} seat(s) are available.`);
-            }
-            resolve("Seats are available");
-        }, 300);
-    });
-}
-
-function generateBookingDetails(movie,showtime,seatCount){
-    return new Promise((resolve)=>{
-        setTimeout(() => {
-            const booking = {
-                bookingId: `BOOK-${Date.now()}`,
-                movieId: movie.id,
-                movieTitle: movie.title,
-                time:showtime.time,
-                seatCount
-            };
-            resolve(booking);
-        }, 300);
-    });
-}
-
-function confirmBooking(booking,showtime){
-    return new Promise((resolve)=>{
-        setTimeout(() => {
-            showtime.seatsAvailable-=booking.seatCount;
-            currentBooking = booking;
-            bookingEmitter.emit("bookingConfirmed",booking);
-            resolve(booking);
-        }, 300);
-    });
-}
-
-//Promise chaining
-function processBooking(movie,showtime,seatCount){
-    bookingEmitter.emit("bookingStarted");
-
-    return checkDuplicateBooking(movie,showtime,seatCount)
-            .then(()=>{
-                bookingEmitter.emit("bookingValidated");
-                return checkSeatsAvailability(showtime,seatCount);
-            })
-            .then(()=>generateBookingDetails(movie,showtime,seatCount))
-            .then((booking)=>confirmBooking(booking,showtime))
-            .catch((error)=>{
-                bookingEmitter.emit("bookingfailed",error);
-                throw error;
-            });
-}
-
-//async/await
-async function processBookingAsync(movie,showtime,seatCount){
-    try{
-        bookingEmitter.emit("bookingStarted");
-
-        await checkDuplicateBooking(movie,showtime,seatCount);
-        bookingEmitter.emit("bookingValidated");
-
-        await checkSeatsAvailability(showtime,seatCount);
-
-        const booking = await generateBookingDetails(movie,showtime,seatCount);
-
-        const confirmedBooking = await confirmBooking(booking,showtime);
-        
-        return confirmedBooking;
+    if (!booking) {
+        bookingEmitter.emit("bookingFailed","No booking found to cancel.");
+        return null;
     }
-    catch(error){
-        bookingEmitter.emit("bookingFailed",error);
-        throw error;
+
+    const movie = movies.find((m)=>m.id === booking.movieId);
+    if (!movie) {
+        bookingEmitter.emit("bookingFailed","Movie data not found while cancelling booking.");
+        return null;
     }
+
+    const showtime = movie.showtimes.find((show)=>show.time.toLowerCase()===booking.time.toLowerCase());
+    if (!showtime) {
+        bookingEmitter.emit("bookingFailed","Showtime data not found");
+        return null;
+    }
+
+    //restore seats
+    showtime.seatsAvailable +=booking.seatCount;
+
+    // clear current Booking
+    clearCurrentBooking();
+
+    bookingEmitter.emit("bookingCancelled",booking);
+
+    return booking;
 }
 
 module.exports = {
-    getCurrentBooking,
-    clearCurrentBooking,
-    processBooking,
-    processBookingAsync
+    cancelBooking
 };

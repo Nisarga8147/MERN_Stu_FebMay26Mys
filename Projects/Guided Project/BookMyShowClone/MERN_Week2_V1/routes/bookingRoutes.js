@@ -1,4 +1,4 @@
-// Handling requests related to bookings
+// Handling request related to bookings
 const express = require("express");
 const {authMiddleware} = require("../middleware/authMiddleware");
 const roleMiddleware = require("../middleware/roleMiddleware");

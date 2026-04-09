@@ -26,4 +26,4 @@ app.use("/auth",authRoutes);
 app.use("/",bookingRoutes);
 app.use("/users",userRoutes);
 app.use(errorMiddleware);
-module.exports = route;
+module.exports = app;

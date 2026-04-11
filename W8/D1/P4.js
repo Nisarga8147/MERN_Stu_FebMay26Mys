@@ -1,5 +1,5 @@
 // Sorting, limiting and Pagination
-// MERN_Stu_FebMay26Mys\W8\D1\P4.js
+
 const mongoose = require("mongoose");
 const Product = require("./P3"); //importing from P3.js
 
@@ -27,6 +27,7 @@ async function sortPaginationDemo(){
                                 .skip(skipCount).limit(limitCount);
 
         console.log("Pagination results: ",paginatedResults);
+
 
         await mongoose.connection.close();
         console.log("connection closed");

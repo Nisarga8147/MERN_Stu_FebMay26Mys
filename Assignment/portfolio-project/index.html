@@ -7,10 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <title>Portfolio Project Assignment</title>
-    <script>
-        tailwind.config = { darkMode:
-        "class" };
-    </script>
+
     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
 
     <link rel="stylesheet" href="css/custom.css">
@@ -32,8 +29,11 @@
 
             <h1 class="text-5xl mb-6">Nisarga D C</h1>
 
-            <p class="text-xl lg:text-2xl text-slate-600 font-bold mb-10 max-w-md mx-auto lg:mx-0">
+            <!-- <p class="text-xl lg:text-2xl text-slate-600 font-bold mb-10 max-w-md mx-auto lg:mx-0">
                 Full-Stack developer | MERN enthusiast | Competitive Programmer
+            </p> -->
+            <p class="text-xl lg:text-2xl text-slate-600 font-bold mb-10 max-w-md mx-auto lg:mx-0">
+                <span id="typing-text"></span>
             </p>
 
             <div
@@ -90,7 +90,8 @@
                 <li><a href="#skills" class="text-lg font-bold hover:text-blue-600">Skills</a></li>
 
             </ul>
-            <button id="theme-toggle" class="bg-gray-200 px-4 py-2 rounded font-bold">Theme</button>
+            <button id="theme-toggle" class="bg-gray-200 px-4 py-2 rounded font-bold hover:bg-red-500">Theme</button>
+             
             <a href="#contact" class="bg-red-400 hover:bg-green-500 rounded transition-all duration-300 px-8 py-3">
                 Let's talk
             </a>
@@ -98,7 +99,7 @@
         </div>
 
     </nav>
-
+  
     <!-- PROJECTS -->
     <select id="project-sort" class="border px-4 py-2 rounded mb-6">
         <option value="">Sort By</option>
@@ -145,10 +146,12 @@
         </div>
 
     </section>
-    <h2 class="text-2xl font-bold text-center mt-16 mb-6">Recently Viewed Projects</h2>
-    <div id="recent-projects" class="grid grid-cols-1 md:grid-cols-3 gap-6 px-8"></div>
+    <div class="project">Portfolio Website</div>
+    <div class="project">E-commerce App</div>
+    <div class="project">Chat Application</div>
 
-    <!-- EXPERIENCE -->
+    <h3>Recently Viewed Projects</h3>
+    <div id="recent-projects"></div>
 
     <section id="experience" class="py-24 px-8 lg:px-16">
 
@@ -259,14 +262,14 @@
     <script src="js/features/skills-render.js"></script>
     <script src="js/features/modal.js"></script>
     <script src="js/features/contact-validation.js"></script>
-    <script src="js/features/theme-persistence.js"></script>
+    <script src="js/features/theme-toggle.js"></script>
     <script src="js/features/project-filter.js"></script>
     <script src="js/features/project-search.js"></script>
     <script src="js/features/developer-stats.js"></script>
     <script src="js/features/scroll-process.js"></script>
     <script src="js/features/geolocation-message.js"></script>
     <script src="js/features/recent-projects.js"></script>
-    <script src="js/features/contact-autosave.js"></script>
+    <script src="js/features/typing-animation.js"></script>
     <script src="js/main.js"></script>
 </body>
 

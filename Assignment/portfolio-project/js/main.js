@@ -3,7 +3,7 @@ document.addEventListener("DOMContentLoaded",function(){
     renderSkills();
     initModal();
     initContactValidation();
-    initTheme(); 
+    initThemeToggle();
     renderProjects();
     renderEducations();
     initScrollProgress();
@@ -15,5 +15,5 @@ document.addEventListener("DOMContentLoaded",function(){
     initProjectExpand();
     initGeolocationMessage();
     initDynamicGreeting();
-    initRecentlyViewed();
+    showRecent();
 })

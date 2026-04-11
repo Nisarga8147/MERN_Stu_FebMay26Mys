@@ -28,7 +28,6 @@ async function sortPaginationDemo(){
 
         console.log("Pagination results: ",paginatedResults);
 
-
         await mongoose.connection.close();
         console.log("connection closed");
     }

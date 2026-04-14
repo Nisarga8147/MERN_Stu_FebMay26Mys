@@ -1,0 +1,146 @@
+section{
+    width:80%;
+    margin:auto;
+}
+
+body{
+    font-family: Arial, sans-serif;
+    margin:0;
+    padding:0;
+    background-color:#c7e6ea;
+}
+
+.navbar{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    background-color:black;
+    padding:15px;
+}
+
+.logo{
+    color:rgb(32, 220, 201);
+    font-size:30px;
+    text-decoration:none;
+    font-weight: bold;
+}
+
+.nav-links{
+    display:flex;
+    list-style:none;
+    gap:20px;
+}
+
+.nav-links a{
+    text-decoration:none;
+    color:rgb(32, 220, 201);
+    font-weight:bold;
+}
+
+.nav-links a:hover{
+    color:#811a48;
+}
+
+.hero{
+    width:50%;
+    margin:50px auto;
+    padding:50px;
+    text-align:center;
+    background:#90e3e1;
+    border-radius:15px; 
+}
+
+.profile-img{
+    border-radius:50%;
+    margin:20px 0;
+    width: 200px;
+    height: 200px;
+}
+
+.cta-button{
+    display:inline-block;
+    background-color:blue;
+    color:white;
+    padding:10px 20px;
+    text-decoration:none;
+    border-radius:5px;
+}
+
+#about{
+    padding:40px;
+    text-align:center;
+}
+
+.tags{
+    margin-top:10px;
+}
+
+.tag{
+    background:#d58989;
+    padding:5px 10px;
+    margin:5px;
+    display:inline-block;
+    border-radius:5px;
+}
+
+#skills{
+    text-align:center;
+    padding:40px;
+}
+
+.skills-grid{
+    display:flex;
+    justify-content:center;
+    gap:20px;
+}
+
+.skill-card{
+    background:rgb(131, 219, 133);
+    padding:20px;
+    width:200px;
+    border-radius:10px;
+    box-shadow:0 0 10px rgba(32, 31, 31, 0.1);
+}
+#projects{
+    padding:40px;
+    text-align:center;
+}
+
+.project-container{
+    margin:20px 0;
+}
+
+#contact{
+    text-align:center;
+    padding:40px;
+}
+
+.contact-form{
+    width:300px;
+    margin:0 auto;
+}
+.form-group{
+    margin-bottom:10px;
+}
+
+input, select, textarea{
+    width:100%;
+    padding:8px;
+    box-sizing:border-box;
+}
+
+.submit-btn{
+    background-color:green;
+    color:white;
+    border:none;
+    padding:10px;
+    width:100%;
+}
+
+footer{
+    background:black;
+    color:white;
+    text-align:center;
+    padding:10px;
+    margin-top:20px;
+}

@@ -1,208 +1,80 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My Portfolio</title>
+    <title>My Portfolio...</title>
+   <link rel="stylesheet" href="style.css">
 </head>
-<style>
-        #home {
-            text-align: center;
-            padding: 10px;
-            background-color: #f4f1f1;
-        }
-
-        nav {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            background-color: rgb(188, 230, 230);
-            padding: 10px 30px;
-        }
-
-        .logo {
-            color: plum;
-            font-size: 20px;
-            font-weight: bold;
-        }
-
-        .nav-links {
-            list-style: none;
-            display: flex;
-            gap: 20px;
-        }
-
-        .profile-img {
-            width: 1oopx;
-            border-radius: 50%;
-            margin: 20px 0;
-        }
-
-        .Cta-button {
-            background-color: orchid;
-            color: white;
-            padding: 20px 30px;
-            text-decoration: none;
-            border-radius: 5px;
-        }
-
-        #about {
-            padding: 15px;
-            background-color: lightskyblue;
-        }
-
-        #skills {
-            padding: 20px;
-            background-color: lavender;
-        }
-
-        #projects {
-            padding: 20px;
-            background-color: mediumpurple;
-        }
-
-        #contact {
-            padding: 30px;
-            background-color: slategrey;
-        }
-
-        .skills-grid {
-            display: flex;
-            gap: 20px;
-        }
-
-        .skill-card {
-            background-color: honeydew;
-            padding: 35px;
-            border: 2px solid khaki;
-            border-radius: 10px;
-            width: 200px;
-        }
-
-        .project-container {
-            margin-top: 30px;
-        }
-
-        .project-content {
-            padding: 20px;
-            border: 2px solid gray;
-            background-color: aquamarine;
-            border-radius: 5px;
-        }
-
-        table {
-            width: 100%;
-            border-collapse: collapse;
-            margin-top: 20px;
-        }
-
-        table,
-        th,
-        td {
-            border: 1px solid palevioletred;
-        }
-
-        th,
-        td {
-            padding: 10px;
-            text-align: center;
-        }
-
-        .contact-form {
-            max-width: 400px;
-        }
-
-        .form-group {
-            margin-bottom: 15px;
-        }
-
-        input,
-        select {
-            width: 100%;
-            padding: 8px;
-        }
-
-        .submit-btn {
-            background-color: gray;
-            color: white;
-            padding: 10px;
-            border: none;
-            cursor: pointer;
-        }
-    </style>
 <body>
     <header>
         <nav>
-            <a href="#home" class="logo bg-skyblue-300 border-2">Nisarga D C</a>
-            <ul class="nav-link">
+            <div class="navbar">
+            <a href="#home"class="logo">Nisarga D C</a>
+            <ul class="nav-links">
                 <li><a href="#home">Home</a></li>
                 <li><a href="#about">About</a></li>
                 <li><a href="#skills">Skills</a></li>
                 <li><a href="#projects">Projects</a></li>
                 <li><a href="#contact">Contact</a></li>
             </ul>
+            </div>
         </nav>
     </header>
-    <!-- Flexbox layout:Hero section -->
+    <!-- Flexbox Layout :Hero section-->
     <section id="home" class="hero">
         <h1>Nisarga D C</h1>
-        <img src="myphoto.jpg" alt="My Photo" class="profile-img" width="100px" height="auto" rounded-full>
-        <p>Software Developer <br>MERN Stack|DeveOps </p>
+        <img src="myphoto.jpg" alt="My Photo" class="profile-img">
+        <p>Software Developer<br>MERN Stack|DevOps</p>
         <a href="#contact" class="cta-button">Contact Me</a>
     </section>
-    <!-- About section -->
+    <!-- About Section -->
     <section id="about">
         <h2>About Me</h2>
         <article class="about">
             <h3>Full Stack Developer</h3>
-            <p>Experienced in web dev and hosting.
-                Specialized in Finance-Domain projects.
+            <p>Experienced in web dev and hosting.Specialized in Finance-Domain projects.
             </p>
             <div class="tags">
-                <span class="tag">Backend: NodJS</span>
+                <span class="tag">Backend: NodeJS</span>
                 <span class="tag">DB: Optimization</span>
             </div>
         </article>
     </section>
-    <!-- Skill -->
+    <!-- Skills -->
     <section id="skills">
         <h3>My Skills</h3>
         <div class="skills-grid">
             <div class="skill-card">
                 <h4>MERN Stack</h4>
-                <p>ReactJS, NodJS, ExpressJS, MongoDB</p>
+                <p>ReactJS, NodeJS, ExpressJS, MongoDB</p>
+            </div>
+            <div class="skill-card">
+                <h4>Programming</h4>
+                <p>JavaScript, Python, Java</p>
+            </div>
+            <div class="skill-card">
+                <h4>Programming</h4>
+                <p>HTML, CSS, JavaScript</p>
             </div>
         </div>
     </section>
     <!-- Projects -->
     <section id="projects">
-        <h3>My Projects</h3>
-        <div class="projects-container">
+        <h2>My Projects</h2>
+        <div class="project-container">
             <div class="project-content">
-                <h4>gola</h4>
-                <p>Rapid way to book cab hassle free</p>
-                <a href="https://www.gola.com/" target="_blank">View</a>
+                <h3>AI for personal assisstance</h3>
+                <p>AI for Personal Assistant is a voice-based intelligent system that uses Artificial Intelligence and Natural Language Processing to understand user speech and respond accordingly. It performs tasks like setting reminders, searching information, and answering queries to improve user productivity.</p>
+            </div>
+            <div class="project-content">
+                <h3>Barcode and QRcode detection with TTS</h3>
+                <p>Barcode and QR Code Detection with Text-to-Speech is an intelligent system that detects and decodes barcode and QR code information using computer vision techniques. The extracted data is converted into audio output using Text-to-Speech technology, enabling accessible and hands-free information retrieval.</p>
             </div>
         </div>
-        <table>
-            <thead>
-                <tr>
-                    <th>Project</th>
-                    <th colspan="2">Technology</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td>AWS for hosting</td>
-                    <td>MERN</td>
-                    <td>Redis</td>
-                </tr>
-            </tbody>
-        </table>
-    </section>
-    <!-- Contact me -->
-    <section id="contact">
+      </section>
+      <!-- Contact Me -->
+       <section id="contact">
         <h3>Contact Me</h3>
         <form class="contact-form">
             <fieldset>
@@ -212,8 +84,8 @@
                     <input type="text" name="name" id="name" placeholder="name" required>
                 </div>
                 <div class="form-group">
-                    <label for="name">Email</label>
-                    <input type="text" name="email" id="email" placeholder="email" required>
+                    <label for="email">Email</label>
+                    <input type="email" name="email" id="email" placeholder="email" required>
                 </div>
                 <div class="form-group">
                     <select name="type">
@@ -221,11 +93,16 @@
                         <option value="consultant">Consultant</option>
                     </select>
                 </div>
+                <div class="form-group">
+                    <label for="message">Message</label>
+                    <textarea id="message" placeholder="Write your message"></textarea>
+                </div>
             </fieldset>
             <button type="submit" class="submit-btn">Send</button>
-
         </form>
     </section>
+    <footer>
+        <p>© 2026 Nisarga D C | Portfolio</p>
+    </footer>
 </body>
-
 </html>

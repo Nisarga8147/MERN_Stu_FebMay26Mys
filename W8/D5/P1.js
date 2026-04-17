@@ -56,6 +56,7 @@ async function main() {
         app.listen(3000,()=>{
             console.log("Server started on port http://localhost:3000");
             console.log("POST /upload-dest");
+            console.log("POST /upload-disk");
         });
     }
     catch(error){

@@ -35,14 +35,14 @@ const bookingSchema = new mongoose.Schema({
 });
 
 //Add Validation
-bookingSchema.pre("save",function(next){
+bookingSchema.pre("save",function(){
     if(this.seats.lengthc===0){
-        return next(new Error("At least one seat must be selected"));
+        throw new Error("At least one seat must be selected");
     }
     if(this.totalSeats!=this.seats.length){
-        return next(new Error("Seat count mismatch"));
+        //return next(new Error("Seat count mismatch"));
+        throw new Error("Seat count mismatch");
     }
-    next();
 });
 
 //Compound index

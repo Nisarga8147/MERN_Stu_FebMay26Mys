@@ -1,5 +1,6 @@
 // Passing Functions as Props
 // Also called as "Callback Props"
+// Child components has to invoke parent logic
 function ChildButton({onGreet}){
     return(
         <button onClick={onGreet}>

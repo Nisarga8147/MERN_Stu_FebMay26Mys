@@ -8,8 +8,8 @@
 
     <title>Portfolio Project Assignment</title>
 
-    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
-
+    <!-- <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script> -->
+    <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="css/custom.css">
 
 </head>
@@ -53,8 +53,8 @@
             <div class="flex flex-wrap gap-6 justify-center lg:justify-start text-sm font-bold">
 
                 <span>800+ Github commits</span>
-                <span>100 LeetCode Questions Solved</span>
-                <span>5 live projects completed</span>
+                <span>10 LeetCode Questions Solved</span>
+                <span>2 live projects completed</span>
 
             </div>
 
@@ -146,12 +146,11 @@
         </div>
 
     </section>
-    <div class="project">Portfolio Website</div>
-    <div class="project">E-commerce App</div>
-    <div class="project">Chat Application</div>
 
-    <h3>Recently Viewed Projects</h3>
+    <section class="py-10 px-8">
+    <h3 class="text-2xl font-bold mb-4">Recently Viewed Projects</h3>
     <div id="recent-projects"></div>
+</section>
 
     <section id="experience" class="py-24 px-8 lg:px-16">
 
@@ -187,66 +186,67 @@
         </div>
 
     </section>
-    <input id="contact-name" type="text" placeholder="Your name" class="w-full border px-4 py-3">
+    
+    <!-- Contact Button -->
+<button type="button" id="modal-trigger"
+    class="fixed bottom-8 right-8 w-16 h-16 bg-blue-900 text-white rounded-full shadow-2xl flex items-center justify-center text-2xl font-bold">
+    ☏
+</button>
 
-    <input id="contact-email" type="email" placeholder="email@website.com" class="w-full border px-4 py-3">
-
-    <!-- CONTACT MODAL -->
-
-    <button id="modal-trigger"
-        class="fixed bottom-8 right-8 w-16 h-16 bg-blue-900 text-white rounded-full shadow-2xl flex items-center justify-center text-2xl font-bold">
-        ☏
-    </button>
-
+<!-- Modal -->
     <div id="contact-modal" class="fixed inset-0 z-50 hidden bg-black/50 backdrop-blur-md">
 
-        <div class="flex items-center justify-center min-h-screen p-4">
+    <div class="flex items-center justify-center min-h-screen p-4">
 
-            <div id="modal-content"
-                class="bg-white w-full max-w-md rounded-2xl shadow-2xl scale-95 opacity-0 transition-all duration-300">
+        <div id="modal-content"
+            class="bg-white w-full max-w-md rounded-2xl shadow-2xl transform scale-95 opacity-0 transition-all duration-300">
 
-                <div class="sticky top-0 border-b p-8 pt-12 bg-white">
+            <!-- Header -->
+            <div class="relative border-b p-6">
 
-                    <h3 class="text-2xl font-bold">Contact Me</h3>
+                <h3 class="text-2xl font-bold text-center">Contact Me</h3>
 
-                    <button id="modal-close" class="absolute top-6 right-6 text-2xl font-bold">
-                        ×
+                <button type="button" id="modal-close"
+                    class="absolute top-4 right-4 text-2xl font-bold hover:text-red-500">
+                    ×
+                </button>
+
+            </div>
+
+            <!-- Form -->
+            <form id="contact-form" class="p-6 space-y-4">
+
+                <input id="contact-name" type="text" placeholder="Your name"
+                    class="w-full border rounded px-4 py-3 focus:outline-none focus:ring-2 focus:ring-blue-400">
+
+                <input id="contact-email" type="email" placeholder="email@website.com"
+                    class="w-full border rounded px-4 py-3 focus:outline-none focus:ring-2 focus:ring-blue-400">
+
+                <p id="form-message" class="text-sm text-red-500"></p>
+
+                <div class="flex flex-col sm:flex-row gap-4 pt-4">
+
+                    <button type="button" id="form-cancel"
+                        class="flex-1 font-bold py-3 px-6 bg-gray-200 rounded hover:bg-gray-300">
+                        Cancel
+                    </button>
+
+                    <button type="submit"
+                        class="flex-1 font-bold py-3 px-6 bg-blue-600 text-white rounded hover:bg-blue-700">
+                        Submit
                     </button>
 
                 </div>
 
-                <form id="contact-form" class="p-8 space-y-4">
-
-                    <input id="contact-name" type="text" placeholder="Your name"
-                        class="w-full border rounded px-4 py-3">
-
-                    <input id="contact-email" type="email" placeholder="email@website.com"
-                        class="w-full border rounded px-4 py-3">
-
-                    <p id="form-message" class="text-sm text-red-500"></p>
-
-                    <div class="flex flex-col sm:flex-row gap-4 pt-4">
-
-                        <button type="button" id="form-cancel" class="flex-1 font-bold py-4 px-6">
-                            Cancel
-                        </button>
-
-                        <button type="submit" class="flex-1 font-bold py-4 px-6">
-                            Submit
-                        </button>
-
-                    </div>
-
-                </form>
-
-            </div>
+            </form>
 
         </div>
 
     </div>
-    <!-- back-to-top -->
+</div>
+     <!-- back-to-top -->
     <button id="back-to-top"
-        class="hidden fixed bottom-8 right-8 bg-purple-600 text-white mb-20 px-4 py-2 rounded-full shadow-lg">
+        class="hidden fixed bottom-24 right-8 bg-purple-600 text-white mb-20 px-4 py-2 rounded-full shadow-lg">
         ↑
     </button>
     <!-- MAIN JS ENTRY -->
@@ -267,6 +267,7 @@
     <script src="js/features/project-search.js"></script>
     <script src="js/features/developer-stats.js"></script>
     <script src="js/features/scroll-process.js"></script>
+     <script src="js/features/scroll-progress.js"></script>
     <script src="js/features/geolocation-message.js"></script>
     <script src="js/features/recent-projects.js"></script>
     <script src="js/features/typing-animation.js"></script>

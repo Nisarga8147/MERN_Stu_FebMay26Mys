@@ -1,0 +1,21 @@
+{
+  "name": "mern_week1_v1.0",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start":"node index.js",
+    "dev":"nodemon index.js",
+    "test": "echo \"No test yet\""
+  },
+  "keywords": [
+    "node.js",
+    "cli",
+    "linkedin-clone"
+  ],
+  "author": "Nisarga",
+  "license": "ISC",
+  "dependencies": {
+    "chalk": "^4.1.2"
+  }
+}

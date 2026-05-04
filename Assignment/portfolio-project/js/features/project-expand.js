@@ -1,3 +1,4 @@
+
 document.addEventListener("DOMContentLoaded", function () {
 
     function initProjectExpand() {
@@ -5,32 +6,15 @@ document.addEventListener("DOMContentLoaded", function () {
 
         if (!container) return;
 
-        const projects = [
-            {
-                name: "Developer Stats Dashboard",
-                description: "Dynamic dashboard that loads developer statistics and profile insights using Fetch API.",
-                expanded: false
-            },
-            {
-                name: "Portfolio Website",
-                description: "Responsive personal portfolio website showcasing projects, skills, and contact information.",
-                expanded: false
-            },
-            {
-                name: "Movie Time",
-                description: "Full stack movie ticket booking application with AI-powered smart movie suggestions.",
-                expanded: true
-            },
-            {
-                name: "Gola",
-                description: "Cab booking platform that helps users quickly book rides for daily travel.",
-                expanded: false
-            }
-        ];
+        const projects = projectsData.map(p => ({
+            ...p,
+            expanded: false
+        }));
 
         const SHORT_LENGTH = 60;
 
-        function renderProjects(list) {
+        function renderProjects(projectexpand) {
+        // window.renderProjects = function(list) {
             container.innerHTML = "";
 
             list.forEach((project, index) => {

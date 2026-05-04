@@ -1,21 +1,85 @@
-.dark-mode{
-    background-color: black;
-    color: white;
+.dark-mode body{
+    background-color: #000;
+    color: #fff;
 }
 .dark-mode nav{
-    background-color: rgb(238, 183, 183);
-    /* color: white; */
+    background-color: #1f2937; /* dark gray */
+    color: white;
 }
 .dark-mode section{
-    background-color: rgb(11, 11, 11);
+    background-color: #0b0b0b;
+    color: white;
 }
 .dark-mode .bg-blue-100{
     background-color: black;
     color: white;
 }
 .dark-mode .bg-white{
-    background-color: rgb(26, 12, 12);
+    background-color: #1f2937; /* dark gray */
+    color: white;
 }
-.dark-mode .text-gray-700{
-     color: white;
+.dark-mode .text-gray-600,
+.dark-mode .text-gray-500,
+.dark-mode .text-gray-400{
+    color: #d1d5db;
+}
+/* Projects Container */
+.dark-mode #projects-container {
+    color: white;
+}
+
+/* Each Project Card (if using bg-white) */
+.dark-mode #projects-container > div {
+    background-color: #1f2937; /* dark card */
+    color: white;
+    border: 1px solid #374151;
+}
+
+/* Project Titles */
+.dark-mode #projects-container h3 {
+    color: #f9fafb;
+}
+
+/* Project Description */
+.dark-mode #projects-container p {
+    color: #d1d5db;
+}
+
+/* Buttons inside projects */
+.dark-mode #projects-container a {
+    background-color: #2563eb;
+    color: white;
+}
+
+.dark-mode #projects-container a:hover {
+    background-color: #1d4ed8;
+}
+
+/* Project count text */
+.dark-mode #project-count {
+    color: #d1d5db;
+}
+
+/* Search input */
+.dark-mode #project-search {
+    background-color: #111827;
+    color: white;
+    border: 1px solid #374151;
+}
+
+/* Sort dropdown */
+.dark-mode #project-sort {
+    background-color: #111827;
+    color: white;
+    border: 1px solid #374151;
+}
+
+/* Filter buttons */
+.dark-mode #project-filters button {
+    background-color: #374151;
+    color: white;
+}
+
+.dark-mode #project-filters button:hover {
+    background-color: #4b5563;
 }

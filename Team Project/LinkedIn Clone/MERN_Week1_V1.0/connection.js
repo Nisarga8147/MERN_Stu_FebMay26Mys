@@ -1,8 +1,6 @@
 //Connection request handler
 const emitter = require("./events");
-
 let requests = [];
-
 function sendRequest(sender, receiver) {
   return Promise.resolve()
     .then(() => {

@@ -1,143 +1,150 @@
+//Main file from where the project begins
+
 const readline = require("readline");
 const chalk = require("chalk");
 
 const {
-    createUser,
-    loginUser,
-    getCurrentUser,
-    getAllUsers
+  createUser,
+  loginUser,
+  getCurrentUser,
+  getAllUsers
 } = require("./user");
 
+const { addSkill, addExperience, addEducation } = require("./profile");
+
 const {
-    addSkill,
-    addExperience,
-    addEducation
-} = require("./profile");
+  sendRequest,
+  acceptRequest,
+  rejectRequest,
+  getRequests
+} = require("./connections");
+
+const { createPost, posts, likePost } = require("./posts");
+const { getFeed } = require("./feed");
 
 const rl = readline.createInterface({
-    input: process.stdin,
-    output: process.stdout
+  input: process.stdin,
+  output: process.stdout
 });
 
-// Main Menu
 function menu() {
-    console.log(chalk.red("\n--- MENU ---"));
-    console.log("1. Create Profile");
-    console.log("2. Login");
-    console.log("3. View My Profile");
-    console.log("4. Edit Profile");
-    console.log("5. View Other Profiles");
-    console.log("6. Exit");
+  console.log(chalk.yellow("\n--- MENU ---"));
+  console.log("1. Create Profile");
+  console.log("2. Login");
+  console.log("3. View My Profile");
+  console.log("4. Edit Profile");
+  console.log("5. View Other Profiles");
+  console.log("6. Send Request");
+  console.log("7. View Requests");
+  console.log("8. View Connections");
+  console.log("9. Create Post");
+  console.log("10. View Feed");
+  console.log("11. Like Post");
+  console.log("12. Exit");
 
-    rl.question("Choose option: ", (choice) => {
-        switch (choice) {
+  rl.question("Choose: ", async (choice) => {
+    const currentUser = getCurrentUser();
 
-            // CREATE PROFILE
-            case "1":
-                rl.question("Enter Name: ", (name) => {
-                    rl.question("Enter Headline: ", (headline) => {
-                        const user = createUser(name, headline);
-                        console.log(chalk.green("Profile created!"));
-                        console.log(user);
-                        menu();
-                    });
-                });
-                break;
+    switch (choice) {
 
-            // LOGIN
-            case "2":
-                console.log(getAllUsers());
-                rl.question("Enter User ID to login: ", (id) => {
-                    const user = loginUser(Number(id));
-                    if (user) {
-                        console.log(chalk.green("Login successful"));
-                    } else {
-                        console.log(chalk.red("User not found"));
-                    }
-                    menu();
-                });
-                break;
+      case "1":
+        rl.question("Name: ", (n) => {
+          rl.question("Headline: ", (h) => {
+            createUser(n, h);
+            menu();
+          });
+        });
+        break;
 
-            // VIEW MY PROFILE
-            case "3":
-                const current = getCurrentUser();
-                if (!current) {
-                    console.log(chalk.red("Please login first"));
-                } else {
-                    console.log(chalk.cyan("\nMy Profile:"));
-                    console.log(current);
-                }
-                menu();
-                break;
+      case "2":
+        console.log(getAllUsers());
+        rl.question("Enter ID: ", (id) => {
+          loginUser(Number(id));
+          menu();
+        });
+        break;
 
-            // EDIT PROFILE
-            case "4":
-                const user = getCurrentUser();
-                if (!user) {
-                    console.log(chalk.red("Login required"));
-                    return menu();
-                }
+      case "3":
+        console.log(currentUser || "Login first");
+        menu();
+        break;
 
-                console.log("\n1. Add Skill");
-                console.log("2. Add Experience");
-                console.log("3. Add Education");
+      case "4":
+        rl.question("1.Skill 2.Exp 3.Edu: ", (o) => {
+          rl.question("Enter: ", (val) => {
+            if (o === "1") addSkill(currentUser, val);
+            if (o === "2") addExperience(currentUser, val);
+            if (o === "3") addEducation(currentUser, val);
+            menu();
+          });
+        });
+        break;
 
-                rl.question("Choose: ", (opt) => {
-                    if (opt === "1") {
-                        rl.question("Enter Skill: ", (skill) => {
-                            addSkill(user, skill);
-                            console.log(chalk.green("Skill added"));
-                            menu();
-                        });
-                    } else if (opt === "2") {
-                        rl.question("Enter Experience: ", (exp) => {
-                            addExperience(user, exp);
-                            console.log(chalk.green("Experience added"));
-                            menu();
-                        });
-                    } else if (opt === "3") {
-                        rl.question("Enter Education: ", (edu) => {
-                            addEducation(user, edu);
-                            console.log(chalk.green("Education added"));
-                            menu();
-                        });
-                    } else {
-                        console.log(chalk.red("Invalid option"));
-                        menu();
-                    }
-                });
-                break;
+      case "5":
+        getAllUsers()
+          .filter(u => u.id !== currentUser.id)
+          .forEach(u => console.log(u));
+        menu();
+        break;
 
-            // VIEW OTHER PROFILES
-            case "5":
-                const allUsers = getAllUsers();
-                const currentUser = getCurrentUser();
+      case "6":
+        rl.question("User ID: ", async (id) => {
+          const r = getAllUsers().find(u => u.id == id);
+          await sendRequest(currentUser, r);
+          menu();
+        });
+        break;
 
-                // Filter out logged-in user
-                const otherUsers = allUsers.filter(u => u.id !== currentUser?.id);
+      case "7":
+        const req = getRequests(currentUser.id);
+        req.forEach(r => console.log(`From: ${r.sender}`));
 
-                if (otherUsers.length === 0) {
-                    console.log(chalk.red("No other users found"));
-                } else {
-                    console.log(chalk.blue("\nAll Profiles:"));
-                    otherUsers.forEach(u => {
-                        console.log(`ID: ${u.id} | Name: ${u.name} | Headline: ${u.headline}`);
-                    });
-                }
-                menu();
-                break;
+        rl.question("Accept ID or r<ID>: ", async (inp) => {
+          if (inp.startsWith("r")) {
+            await rejectRequest(currentUser, Number(inp.slice(1)));
+          } else {
+            await acceptRequest(currentUser, Number(inp));
+          }
+          menu();
+        });
+        break;
 
-            // EXIT
-            case "6":
-                console.log("Goodbye!");
-                rl.close();
-                break;
+      case "8":
+        console.log(currentUser.connections);
+        menu();
+        break;
 
-            default:
-                console.log(chalk.red("Invalid choice"));
-                menu();
-        }
-    });
+      case "9":
+        rl.question("Post: ", async (c) => {
+          await createPost(currentUser, c);
+          menu();
+        });
+        break;
+
+      case "10":
+        const f = await getFeed(currentUser);
+        f.forEach(p =>
+          console.log(`${p.authorName}: ${p.content} | Likes:${p.likes.length}`)
+        );
+        menu();
+        break;
+
+      case "11":
+        rl.question("Post ID: ", (id) => {
+          const p = posts.find(x => x.id == id);
+          likePost(currentUser.id, p);
+          menu();
+        });
+        break;
+
+      case "12":
+        rl.close();
+        break;
+
+      default:
+        menu();
+    }
+  });
 }
 
 menu();

@@ -4,7 +4,7 @@ document.addEventListener("DOMContentLoaded",function(){
     initModal();
     initContactValidation();
     initThemeToggle();
-    renderProjects();
+    renderProjects(projectexpand);
     renderEducations();
     initScrollProgress();
     initScrollSpy();

@@ -20,7 +20,7 @@ exports.createBooking = async (req,res,next)=>{
 //get bookings
 exports.getMyBookings = async(req,res,next)=>{
     try{
-        const bookings = await bookingService.getUserBooking(req.user._id);
+        const bookings = await bookingService.getUserBookings(req.user._id);
         res.status(200).json({
         success:true,
         message:"Booking fetched",
@@ -38,8 +38,7 @@ exports.cancelBooking = async(req,res,next)=>{
         await bookingService.cancelBooking(req.params.id,req.user._id);
         res.status(200).json({
         success:true,
-        message:"Booking cancelled",
-        data:bookings
+        message:"Booking cancelled"
        });
     }
     catch(error){

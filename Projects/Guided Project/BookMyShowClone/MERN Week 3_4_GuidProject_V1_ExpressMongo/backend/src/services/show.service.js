@@ -1,5 +1,6 @@
 const Show = require("../models/Show");
 const Movie = require("../models/Movie");
+const CustomError = require("../utils/customError");
 
 //Generate Seats
 const generateSeats = (totalSeats)=>{
@@ -23,9 +24,7 @@ const generateSeats = (totalSeats)=>{
 exports.createShow = async({movieId,date,time,totalSeats})=>{
     //check if movie exists
     const movie = await Movie.findById(movieId);
-    if(!movie){
-        throw new Error("Movie not found");
-    }
+    if (!movie) throw new CustomError("Movie not found",404);
     //generate seats
     const seats = generateSeats(totalSeats);
 
@@ -54,8 +53,7 @@ exports.getShows = async({movieId,date})=>{
 //Get show by Id
 exports.getShowById = async (id) =>{
     const show = await Show.findById(id).populate("movieId");
-    if(!show)
-        throw new Error("Show not found");
+    if (!show) throw new CustomError("Show not found",404);
     return show;
 };
 
@@ -65,16 +63,14 @@ exports.updateShow = async(id,data)=>{
         returnDocument:"after",
         runValidators:true,
     });
-    if(!show)
-        throw new Error("Show not found");
+    if (!show) throw new CustomError("Show not found",404);
     return show;
 };
 
 //Delete show
 exports.deleteShow = async(id)=>{
-    const show = await Show.findByIdAndUpdate(id,{
+    await Show.findByIdAndUpdate(id,{
         isActive:false
     });
-    if(!show)
-        throw new Error("Show not found");
+    if (!show) throw new CustomError("Show not found",404);
 };

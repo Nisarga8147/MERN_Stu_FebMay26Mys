@@ -1,6 +1,6 @@
 const { mongo } = require("mongoose");
 const Movie = require("../models/Movie");
-const movie = require("../models/Movie");
+const CustomError = require("../utils/customError");
 
 //Create Movie
 exports.createMovie = async(data)=>{
@@ -50,7 +50,7 @@ exports.updateMovie = async(id,data)=>{
         runValidators:true
     });
     if(!movie)
-        throw new Error("Movie not found");
+        if (!movie) throw new CustomError("Movie not found",404);
         return movie;
 };
 
@@ -60,6 +60,5 @@ exports.deleteMovie = async(id)=>{
     const movie = await Movie.findByIdAndUpdate(id,{
         isActive:false
     }); 
-    if(!movie)
-        throw new Error("Movie not found");
+    if (!movie) throw new CustomError("Movie not found",404);
 };

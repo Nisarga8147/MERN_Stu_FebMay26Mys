@@ -1,11 +1,11 @@
-document.addEventListener("DOMContentLoaded",function(){
-    //Render skills
-    renderSkills();
-    initModal();
-    initContactValidation();
-    initThemeToggle();
-    renderProjects();
-    renderEducations();
-    languageSwitcher();
-    initScrollProgress();
-})
+window.onload = function () {
+  renderProjects();
+  setupProjectSearch(); 
+  setupContactModal();
+  renderSkills();
+  renderEducation();
+
+  setGreeting();
+  typingEffect();
+  setupThemeToggle();
+};

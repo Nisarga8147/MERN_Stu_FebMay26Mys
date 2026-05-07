@@ -1,243 +1,204 @@
-<!-- MERN_Stu_FebMay26Mys\W4\D5\portfolio-project\index.html -->
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <title>Week 3 & 4 Portfolio Project</title>
-
-    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
-
-    <link rel="stylesheet" href="css/custom.css">
-
+  <meta charset="UTF-8">
+  <title>Portfolio</title>
+   <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+  <!-- <script src="https://cdn.tailwindcss.com"></script> -->
+  <link rel="stylesheet" href="./css/custom.css">
 </head>
 
-<body>
-<select id="language-switcher" class="border rounded px-3 py-2 font-bold">
-        <option value="en">English</option>
-        <option value="kn">ಕನ್ನಡ</option>
-    </select>
-    <!-- Scroll Progress Bar -->
-    <div id="scroll-bar" class="fixed top-0 left-0 h-1 bg-blue-500 w-0 z-[60]"></div>
-    <!-- HERO SECTION -->
-
-    <section class="min-h-screen flex flex-col lg:flex-row lg:items-center lg:justify-between px-8 lg:px-16 py-20 gap-12 lg:gap-20">
-
-        <div class="order-2 lg:order-1 flex-1 lg:max-w-lg text-center lg:text-left">
-
-            <h1 class="text-5xl mb-6">Nisarga D C</h1>
-
-            <p class="text-xl lg:text-2xl text-slate-600 font-bold mb-10 max-w-md mx-auto lg:mx-0">
-                Full-Stack developer | MERN enthusiast | Competitive Programmer
-            </p>
-
-            <div
-                class="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start items-center lg:items-start mb-8">
-
-                <a href="#projects" class="bg-red-400 hover:bg-green-500 px-10 py-4 rounded shadow-xl">
-                    View Projects
-                </a>
-
-                <a href="resume.pdf" download="resume.pdf" class="bg-blue-400 hover:bg-green-500 px-10 py-4 rounded shadow-xl">
-                    Download Resume
-                </a>
-
-            </div>
-
-            <div class="flex flex-wrap gap-6 justify-center lg:justify-start text-sm font-bold">
-
-                <span>800+ Github commits</span>
-                <span>100 LeetCode Questions Solved</span>
-                <span>5 live projects completed</span>
-
-            </div>
-
-        </div>
-
-        <div class="order-1 lg:order-2 w-full lg:w-96 max-w-sm mx-auto lg:mx-0">
-
-            <img src="myphoto.jpg" alt="My photo"
-                class="aspect-square w-full rounded-full shadow-lg mx-auto lg:mx-0 hover:ring-blue-500 transition-all duration-300 hover:scale-[1.02]"
-                loading="lazy">
-
-        </div>
-
-    </section>
-
-    <!-- NAVBAR -->
-
-    <nav class="sticky top-0 z-50 bg-white/95 backdrop-blur-md border-b shadow-lg">
-
-        <div class="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
-
-            <a href="#"
-                class="text-2xl font-bold bg-clip-text bg-gradient-to-r from-red-400 to-slate-700 text-transparent">
-                NDC
-            </a>
-
-            <ul class="hidden md:flex items-center gap-10">
-
-                <li><a href="#projects" class="text-lg font-bold hover:text-blue-600">Projects</a></li>
-
-                <li><a href="#experience" class="text-lg font-bold hover:text-blue-600">Experience</a></li>
-
-                <li><a href="#skills" class="text-lg font-bold hover:text-blue-600">Skills</a></li>
-
-            </ul>
-            <button id="theme-toggle" class="bg-gray-200 px-4 py-2 rounded font-bold">Theme</button>
-            <a href="#contact" class="bg-red-400 hover:bg-green-500 rounded transition-all duration-300 px-8 py-3">
-                Let's talk
-            </a>
-
-        </div>
-
-    </nav>
-
-    <!-- PROJECTS -->
-
-    <section id="projects" class="py-24 px-8 lg:px-16">
-
-        <div class="max-w-7xl mx-auto">
-
-            <div class="text-center mb-10">
-
-                <h2 class="text-4xl lg:text-5xl mb-6">My Projects</h2>
-
-                <p class="text-xl max-w-2xl mx-auto">
-                    Enterprise scale full-stack applications built with modern frameworks
-                </p>
-
-            </div>
-
-            <!-- Project Search (Feature will attach here) -->
-
-            <div class="mb-10 text-center">
-
-                <input id="project-search" type="text" placeholder="Search projects..."
-                    class="border rounded px-6 py-3 w-full max-w-md">
-
-            </div>
-
-            <!-- Project Filter Bar -->
-
-            <div id="project-filters" class="flex flex-wrap justify-center gap-4 mb-12">
-            </div>
-
-            <!-- Dynamic container for projects -->
-
-            <div id="projects-container" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            </div>
-
-        </div>
-
-    </section>
-
-    <!-- EXPERIENCE -->
-
-    <section id="experience" class="py-24 px-8 lg:px-16">
-
-        <div  class="max-w-4xl mx-auto">
-
-            <h2 class="text-4xl text-black-700 text-center mb-20">
-                Education and Experience
-            </h2>
-            <div id="experience-container" ></div>
-
-            <!-- existing experience cards remain unchanged -->
-
-         </div>
-      
-
-    </section>  
-
-    <!-- SKILLS -->
-
-    <section id="skills" class="py-24 px-8 lg:px-16 bg-blue-100">
-
-        <div class="max-w-7xl mx-auto">
-
-            <h2 class="text-4xl text-center font-bold mb-20">
-                Skills
-            </h2>
-
-            <!-- Dynamic Skills Container -->
-
-            <div id="skills-container" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-            </div>
-
-        </div>
-
-    </section>
-
-    <!-- CONTACT MODAL -->
-
-    <button id="modal-trigger"
-        class="fixed bottom-8 right-8 w-16 h-16 bg-blue-900 text-white rounded-full shadow-2xl flex items-center justify-center text-2xl font-bold">
-        ☏
-    </button>
-
-    <div id="contact-modal" class="fixed inset-0 z-50 hidden bg-black/50 backdrop-blur-md">
-
-        <div class="flex items-center justify-center min-h-screen p-4">
-
-            <div id="modal-content"
-                class="bg-white w-full max-w-md rounded-2xl shadow-2xl scale-95 opacity-0 transition-all duration-300">
-
-                <div class="sticky top-0 border-b p-8 pt-12 bg-white">
-
-                    <h3 class="text-2xl font-bold">Contact Me</h3>
-
-                    <button id="modal-close" class="absolute top-6 right-6 text-2xl font-bold">
-                        ×
-                    </button>
-
-                </div>
-
-                <form id="contact-form" class="p-8 space-y-4">
-
-                    <input id="contact-name" type="text" placeholder="Your name"
-                        class="w-full border rounded px-4 py-3">
-
-                    <input id="contact-email" type="email" placeholder="email@website.com"
-                        class="w-full border rounded px-4 py-3">
-
-                    <p id="form-message" class="text-sm text-red-500"></p>
-
-                    <div class="flex flex-col sm:flex-row gap-4 pt-4">
-
-                        <button type="button" id="form-cancel" class="flex-1 font-bold py-4 px-6">
-                            Cancel
-                        </button>
-
-                        <button type="submit" class="flex-1 font-bold py-4 px-6">
-                            Submit
-                        </button>
-
-                    </div>
-
-                </form>
-
-            </div>
-
-        </div>
+<body class="bg-gray-50 text-gray-800 font-sans scroll-smooth">
+
+<!-- ✅ NAVBAR -->
+<!-- <nav class="fixed top-0 left-0 w-full bg-white/80 backdrop-blur-md shadow-sm z-50 border-b">
+  <div class="max-w-6xl mx-auto flex justify-between items-center p-4">
+    
+    <h1 class="font-bold text-xl text-indigo-600">NDC</h1>
+
+    <div class="flex gap-6 items-center">
+      <a href="#projects" class="hover:text-indigo-600">Projects</a>
+      <a href="#education" class="hover:text-indigo-600">Education</a>
+      <a href="#skills" class="hover:text-indigo-600">Skills</a>
+
+      <button id="theme-btn" 
+        class="px-3 py-1 bg-indigo-600 text-white rounded">
+        Theme
+      </button>
+    </div>
+  </div>
+</nav> -->
+<nav class="fixed top-0 left-0 w-full bg-white/80 backdrop-blur-md shadow-sm border-b z-50">
+  <div class="max-w-6xl  mx-auto flex justify-between items-center px-8 py-4">
+
+    <!-- LOGO -->
+    <h1 class="text-xl font-bold text-indigo-600 tracking-wide">
+      NDC
+    </h1>
+
+    <!-- MENU -->
+    <div class="flex items-center gap-8">
+
+      <a href="#projects"
+        class="nav-link">Projects</a>
+
+      <a href="#education"
+        class="nav-link">Education</a>
+
+      <a href="#skills"
+        class="nav-link">Skills</a>
+
+      <!-- THEME BUTTON -->
+      <button id="theme-btn"
+        class="px-4 py-1.5 bg-indigo-600 text-white rounded-lg shadow hover:bg-indigo-700 transition">
+        Theme
+      </button>
 
     </div>
+  </div>
+</nav>
 
-    <!-- MAIN JS ENTRY -->
-    <script src="js/data/projects.js"></script>
-    <script src="js/data/educations.js"></script>
-    <script src="js/data/skills.js"></script>
-    <script src="js/features/skills-render.js"></script>
-    <script src="js/features/modal.js"></script>
-    <script src="js/features/contact-validation.js"></script>
-    <script src="js/features/theme-toggle.js"></script>
-    <script src="js/features/project-search.js"></script>
-    <script src="js/features/developer-stats.js"></script>
-    <script src="js/features/scroll-process.js"></script>
-    <script src="js/features/language-switcher.js"></script>
-    <script src="js/main.js"></script>
+<!-- ✅ HERO -->
+<section class="min-h-screen flex items-center px-6 pt-24">
+
+  <div class="max-w-6xl mx-auto grid md:grid-cols-2 gap-10 items-center">
+
+    <!-- LEFT SIDE (TEXT) -->
+    <div>
+      <p id="greeting-message" class="text-lg  mb-2"></p>
+
+      <h1 class="text-5xl md:text-6xl font-extrabold mb-4 leading-tight">
+  Hi, I'm <span class="text-indigo-600">Nisarga DC</span>
+</h1>
+
+<p id="typing-text" class="text-lg md:text-xl text-slate-600 mb-6"></p>
+      <div class="flex gap-4">
+        <a href="resume.pdf" download
+           class="px-6 py-2 bg-indigo-600 text-white rounded-lg shadow hover:bg-indigo-700 transition">
+           Download Resume
+        </a>
+
+        <a href="#projects"
+           class="px-6 py-2 border border-indigo-600 text-indigo-600 rounded-lg hover:bg-indigo-50 transition">
+           View Projects
+        </a>
+      </div>
+    </div>
+
+    <!-- RIGHT SIDE (IMAGE) -->
+    <div class="flex justify-center md:justify-end">
+      <img src="myphoto.jpg"
+           class="w-60 h-69 object-cover rounded-full shadow-2xl border-2 border-indigo-200">
+    </div>
+
+  </div>
+
+</section>
+
+
+</section>
+
+<!-- ✅ PROJECTS FIRST -->
+<!-- PROJECTS -->
+<section id="projects" class="p-12 bg-gradient-to-r from-indigo-50 to-indigo-100">
+  <h2 class="text-3xl md:text-4xl font-extrabold mb-10 text-center text-slate-800">Projects</h2>
+
+  <!-- 🔍 SEARCH BAR -->
+<div class="flex justify-center mb-8">
+  <input 
+    type="text" 
+    id="project-search"
+    placeholder="Search projects by name..."
+    class="w-full max-w-md px-4 py-2 border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-indigo-500"
+  />
+</div>
+
+  <div id="projects-container"
+     class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-5xl mx-auto">
+</div>
+</section>
+
+<!-- ✅ EDUCATION -->
+<!-- EDUCATION -->
+<section id="education" class="p-12 bg-gradient-to-r from-emerald-50 to-emerald-100">
+  <h2 class="text-3xl md:text-4xl font-extrabold mb-10 text-center text-slate-800">Education</h2>
+
+  <div id="education-container" class="max-w-3xl mx-auto flex flex-col gap-6">
+</div>
+</section>
+
+<!-- ✅ SKILLS LAST -->
+<!-- SKILLS -->
+<section id="skills" class="p-12 bg-gradient-to-r from-purple-50 to-purple-100">
+ <h2 class="text-3xl md:text-4xl font-extrabold mb-10 text-center text-slate-800">Skills</h2>
+  <div id="skills-container"
+       class="flex flex-wrap justify-center gap-6">
+  </div>
+</section>
+
+<!-- CONTACT BUTTON -->
+<button id="contact-btn"
+  class="fixed bottom-6 right-6 bg-indigo-600 text-white 
+         w-14 h-14 rounded-full shadow-lg flex items-center 
+         justify-center text-2xl hover:bg-indigo-700 transition z-50">
+
+  ☏
+</button>
+
+<!-- CONTACT MODAL -->
+<div id="contact-modal" class="fixed inset-0 bg-black/60 hidden flex items-center justify-center">
+
+  <div class="bg-white w-96 p-6 rounded-xl shadow-xl relative">
+
+    <!-- CLOSE BUTTON -->
+    <button id="close-modal"
+      class="absolute top-2 right-3 text-gray-500 text-xl">&times;</button>
+
+    <h2 class="text-xl font-bold mb-4 text-center">Contact Me</h2>
+
+    <form id="contact-form" class="flex flex-col gap-4">
+
+      <input type="text" id="name"
+        placeholder="Your name"
+        class="border p-2 rounded">
+
+      <input type="email" id="email"
+        placeholder="email@website.com"
+        class="border p-2 rounded">
+
+      <textarea id="message"
+        placeholder="Your message"
+        class="border p-2 rounded"></textarea>
+
+      <div class="flex justify-between mt-2">
+        <button type="button" id="cancel-btn"
+          class="px-4 py-2 bg-gray-300 rounded">
+          Cancel
+        </button>
+
+        <button type="submit"
+          class="px-4 py-2 bg-indigo-600 text-white rounded">
+          Submit
+        </button>
+      </div>
+
+    </form>
+
+  </div>
+</div>
+
+<!-- JS FILES (ORDER MATTERS) -->
+<script src="./js/data/skills.js"></script>
+<script src="./js/data/projects.js"></script>
+<script src="./js/data/educations.js"></script>
+<script src="./js/features/dynamic-greeting.js"></script>
+<script src="./js/features/typing-animation.js"></script>
+<script src="./js/features/skills-render.js"></script>
+<script src="./js/features/project-render.js"></script>
+<script src="./js/features/education-render.js"></script>
+<script src="./js/features/theme-toggle.js"></script>
+<script src="./js/features/contact-modal.js"></script>
+<script src="./js/main.js"></script>
+
 </body>
-
 </html>

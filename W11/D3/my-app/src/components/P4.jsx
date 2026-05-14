@@ -12,7 +12,6 @@ export function CRUDOperation() {
         setError("");
         setResult(null);
     }
-
     // Create
     async function createPost() {
         setLoading(true);

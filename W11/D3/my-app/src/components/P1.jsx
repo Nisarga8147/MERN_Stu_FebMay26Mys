@@ -1,5 +1,4 @@
 import { useEffect, useState } from "react";
-
 // Managing API state with useEffect
 export default function ManagingApiState(){
     // use state : stores the list of users returned from API

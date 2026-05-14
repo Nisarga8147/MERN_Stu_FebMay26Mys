@@ -14,7 +14,6 @@ export function AxiosLifecycle() {
             controller.abort();
         };
     },[]);
-
     async function loadPosts(signal) {
         setLoading(true);
         setError("");

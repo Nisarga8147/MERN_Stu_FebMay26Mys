@@ -6,7 +6,7 @@
 import { useState, useEffect } from "react";
 export function UseEffectLifecycle() {
     const [count,setCount] = useState(0);
-    
+
     // 1. No dependency array
     useEffect(()=>{
         console.log("Effect 1: runs after every render");

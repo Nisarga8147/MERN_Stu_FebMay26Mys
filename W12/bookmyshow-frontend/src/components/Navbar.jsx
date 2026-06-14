@@ -147,24 +147,13 @@ function getNavStyle({ isActive }) {
     };
 }
 
-
 const styles = {
     nav: {
         display: "flex",
-
-
         justifyContent: "space-between",
-
-
         alignItems: "center",
-
-
         padding: "15px 25px",
-
-
         borderBottom: "1px solid #ddd",
-
-
         marginBottom: "20px",
     },
 

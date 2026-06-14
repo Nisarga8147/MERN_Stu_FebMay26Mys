@@ -5,7 +5,9 @@
 =========================================================
 SPRINT 1 – ROUTING BRAIN
 
+
 TOPICS COVERED:
+
 
 ✓ React Router v7
 ✓ Routes
@@ -17,12 +19,16 @@ TOPICS COVERED:
 ✓ Protected Routes
 ✓ 404 Routing
 
+
 WHY THIS FILE?
+
 
 AppRoutes.jsx is the routing brain
 of the entire application.
 
+
 Responsibilities:
+
 
 URL
 ↓
@@ -34,23 +40,25 @@ Load Page
 ↓
 Render UI
 
+
 Without this file:
+
 
 ✓ Navigation breaks
 ✓ Protected routes break
 ✓ Nested routes break
 ✓ 404 handling breaks
 
+
 =========================================================
 */
 
+
 import { lazy, Suspense } from "react";
 
-import {
-    Routes,
-    Route,
-    Navigate
-} from "react-router-dom";
+
+import { Routes, Route, Navigate } from "react-router-dom";
+
 
 /*
 =========================================================
@@ -58,14 +66,18 @@ SHARED COMPONENTS
 =========================================================
 */
 
+
 import LoadingSpinner from "../components/LoadingSpinner";
 import ProtectedRoute from "../components/ProtectedRoute";
+
 
 /*
 =========================================================
 LAYOUTS
 
+
 Layouts define common UI structure.
+
 
 PublicLayout
 ↓
@@ -73,86 +85,84 @@ Navbar
 ↓
 Outlet
 
+
 AdminLayout
 ↓
 Admin Sidebar
 ↓
 Outlet
 
+
 =========================================================
 */
 
+
 import PublicLayout from "../layouts/PublicLayout";
 import AdminLayout from "../layouts/AdminLayout";
+
 
 /*
 =========================================================
 LAZY LOADING
 
+
 WHY?
+
 
 Large route components should not
 be bundled immediately.
 
+
 Benefits:
+
 
 ✓ Faster initial load
 ✓ Smaller bundle size
 ✓ Production-oriented approach
 
+
 We lazy load only pages,
 NOT tiny reusable components.
+
 
 =========================================================
 */
 
-const Home = lazy(() =>
-    import("../pages/Home")
-);
+
+const Home = lazy(() => import("../pages/Home"));
 
 
-const Movies = lazy(() =>
-    import("../pages/Movies")
-);
+const Movies = lazy(() => import("../pages/Movies"));
 
 
-const Login = lazy(() =>
-    import("../pages/Login")
-);
+const Login = lazy(() => import("../pages/Login"));
 
 
-const Signup = lazy(() =>
-    import("../pages/Signup")
-);
+const Signup = lazy(() => import("../pages/Signup"));
 
 
-const Bookings = lazy(() =>
-    import("../pages/Bookings")
-);
+const Bookings = lazy(() => import("../pages/Bookings"));
 
 
-const NotFound = lazy(() =>
-    import("../pages/NotFound")
-);
+const NotFound = lazy(() => import("../pages/NotFound"));
 
 
-const Dashboard = lazy(() =>
-    import("../pages/admin/Dashboard")
-);
+const Dashboard = lazy(() => import("../pages/admin/Dashboard"));
 
 
-const MovieManagement = lazy(() =>
-    import("../pages/admin/MovieManagement")
-);
+const MovieManagement = lazy(() => import("../pages/admin/MovieManagement"));
 
 
 /*
 =========================================================
 APP ROUTES
 
+
 ROUTE ARCHITECTURE
 
+
 PUBLIC
+
 
 /
 ├── Home
@@ -160,29 +170,33 @@ PUBLIC
 ├── Login
 ├── Signup
 
+
 USER
+
 
 /bookings
 
+
 ADMIN
+
 
 /admin
 ├── dashboard
 └── movies
 
+
 FALLBACK
 
+
 *
+
 
 =========================================================
 */
 
+
 export default function AppRoutes() {
-
-
     return (
-
-
         /*
         =====================================================
         SUSPENSE
@@ -196,18 +210,8 @@ export default function AppRoutes() {
         */
 
 
-        <Suspense
-
-
-            fallback={<LoadingSpinner />}
-
-
-        >
-
-
+        <Suspense fallback={<LoadingSpinner />}>
             <Routes>
-
-
                 {/*
         =================================================
         PUBLIC ROUTES
@@ -223,22 +227,16 @@ export default function AppRoutes() {
 
 
                 <Route element={<PublicLayout />}>
-                    <Route
-                        path="/"
-                        element={<Home />}
-                    />
-                    <Route
-                        path="/movies"
-                        element={<Movies />}
-                    />
-                    <Route
-                        path="/login"
-                        element={<Login />}
-                    />
-                    <Route
-                        path="/signup"
-                        element={<Signup />}
-                    />
+                    <Route path="/" element={<Home />} />
+
+
+                    <Route path="/movies" element={<Movies />} />
+
+
+                    <Route path="/login" element={<Login />} />
+
+
+                    <Route path="/signup" element={<Signup />} />
                 </Route>
 
 
@@ -257,19 +255,13 @@ export default function AppRoutes() {
         =================================================
         */}
 
-
                 <Route
                     element={
                         <ProtectedRoute>
                             <Bookings />
                         </ProtectedRoute>
                     }
-                >
-                    <Route
-                        path="/bookings"
-                        element={<Bookings />}
-                    />
-                </Route>
+                />
 
                 {/*
         =================================================
@@ -285,26 +277,16 @@ export default function AppRoutes() {
 
         =================================================
         */}
+
+
                 <Route
                     path="/admin"
                     element={
-                        <ProtectedRoute
-                            requiredRole="admin"
-                        >
-
-
+                        <ProtectedRoute roles={["admin"]}>
                             <AdminLayout />
-
-
                         </ProtectedRoute>
-
-
                     }
-
-
                 >
-
-
                     {/*
           ===============================================
           INDEX ROUTE
@@ -319,42 +301,13 @@ export default function AppRoutes() {
           */}
 
 
-                    <Route
+                    <Route index element={<Dashboard />} />
 
 
-                        index
+                    <Route path="dashboard" element={<Dashboard />} />
 
 
-                        element={<Dashboard />}
-
-
-                    />
-
-
-                    <Route
-
-
-                        path="dashboard"
-
-
-                        element={<Dashboard />}
-
-
-                    />
-
-
-                    <Route
-
-
-                        path="movies"
-
-
-                        element={<MovieManagement />}
-
-
-                    />
-
-
+                    <Route path="movies" element={<MovieManagement />} />
                 </Route>
 
 
@@ -370,27 +323,10 @@ export default function AppRoutes() {
         */}
 
 
-                <Route
-
-
-                    path="*"
-
-
-                    element={<NotFound />}
-
-
-                />
-
-
+                <Route path="*" element={<NotFound />} />
             </Routes>
-
-
         </Suspense>
-
-
     );
-
-
 }
 
 

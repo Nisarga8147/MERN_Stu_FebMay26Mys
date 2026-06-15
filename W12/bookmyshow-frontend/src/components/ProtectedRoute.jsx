@@ -77,7 +77,11 @@ What are you allowed to access?
 */
 
 
-import { Navigate } from "react-router-dom";
+import {
+    Navigate,
+    useLocation,
+} from "react-router-dom";
+
 
 
 import { useAuth } from "../context/AuthContext";
@@ -103,6 +107,7 @@ export default function ProtectedRoute({ children, requiredRole }) {
 
 
     const { isAuthenticated, user, loading } = useAuth();
+    const location = useLocation();
 
 
     /*
@@ -123,7 +128,13 @@ export default function ProtectedRoute({ children, requiredRole }) {
 
 
     if (!isAuthenticated) {
-        return <Navigate to="/login" replace />;
+        return (
+            <Navigate
+                to="/login"
+                replace
+                state={{ from: location }}
+            />
+        );
     }
 
 

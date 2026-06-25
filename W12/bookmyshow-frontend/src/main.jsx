@@ -58,6 +58,8 @@ import "./index.css";
 
 
 import { AuthProvider } from "./context/AuthContext";
+import { Provider } from "react-redux";
+import { store } from "./redux/store";
 
 
 ReactDOM.createRoot(
@@ -97,19 +99,20 @@ ReactDOM.createRoot(
     */}
 
 
-    <AuthProvider>
+    <Provider store={store}>
 
+      <AuthProvider>
 
-      <BrowserRouter>
+        <BrowserRouter>
 
+          <App />
 
-        <App />
+        </BrowserRouter>
 
+      </AuthProvider>
 
-      </BrowserRouter>
+    </Provider>
 
-
-    </AuthProvider>
 
 
   </React.StrictMode>
